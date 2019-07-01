@@ -1,0 +1,38 @@
+<div class="container" ng-controller="ForumController">
+  <div class="row">
+<div class="main">
+ <h3>Manage Forum</h3>
+ 
+  <div> 
+  <div class="panel-group"id="accordion">
+    <div class="panel panel-default" ng-repeat="forum in forumdata">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        
+           <a data-toggle="collapse" data-parent="#accordion" href="/#{{forum.forumid}}">{{forum.forumname}}</a>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <span ng-show="forum.status=='NA'">
+           <img src="approve.jpg" ng-click="approveforum(forum.forumid)" width="20" height="20"/>
+           </span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <span ng-show="forum.status=='A'">
+           <img src="rejected.jpg" ng-click="rejectforum(forum.forumid)" width="20" height="20"/>
+           </span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ 			<span>
+           <img src="deleteicon.png" ng-click="deleteforum(forum.forumid)" width="20" height="20"/>
+           </span>
+        </h4>
+        
+      </div>
+      <div id="{{forum.forumid}}" class="panel-collapse collapse">
+        <div class="panel-body">{{forum.forumcontent}}</div>      
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+</div>
+  </div> 
+
+    

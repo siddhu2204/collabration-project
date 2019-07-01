@@ -1,0 +1,39 @@
+<div class="container" ng-controller="BlogController">
+  <div class="row">
+<div class="main">
+ <h3>ShowBlog</h3>
+ 
+  <div> 
+  <div class="panel-group"id="accordion">
+    <div class="panel panel-default" ng-repeat="blog in blogdata">
+      <div class="panel-heading" ng-show="blog.status=='A'">
+        <h4 class="panel-title">
+        
+           <a data-toggle="collapse" data-parent="#accordion" href="/#{{blog.blogid}}">{{blog.blogname}}</a>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <img src="likeicon.jpg" ng-click="incrementlikes(blog.blogid)" width="20" height="20"/>{{blog.likes}}
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <img src="dislikeicon.png" ng-click="incrementdislikes(blog.blogid)" width="20" height="20"/>{{blog.dislikes}}
+           <span ng-show="blog.username==user1.username">
+           <img src="deleteicon.png" ng-click="deleteblog(blog.blogid)" width="20" height="20"/>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <img src="edit.jpg" ng-click="editBlog(blog.blogid)" width="20" height="20"/> 
+           </span>
+           
+           <span>
+           <img src="commenticon.jpg" height="20" width="20" ng-click="showcomment(blog.blogid)">
+           </span>
+        </h4>
+        
+      </div>
+      <div id="{{blog.blogid}}" class="panel-collapse collapse">
+        <div class="panel-body">{{blog.blogcontent}}</div>      
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+</div>
+  </div> 
+
+    
