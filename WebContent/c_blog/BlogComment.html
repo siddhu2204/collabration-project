@@ -1,0 +1,45 @@
+<div class="container" ng-controller="BlogCommentController">
+  <div class="row">
+<div class="main">
+ <h3>Blog Comment</h3>
+ 
+  <div> 
+  <div class="panel-group"id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        
+           <a data-toggle="collapse" data-parent="#accordion" href="/#{{blog.blogid}}">{{blog.blogname}}</a>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <img src="likeicon.jpg" ng-click="incrementlikes(blog.blogid)" width="20" height="20"/>{{blog.likes}}
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <img src="dislikeicon.png" ng-click="incrementdislikes(blog.blogid)" width="20" height="20"/>{{blog.dislikes}}
+           <span ng-show="blog.username==user1.username">
+           <img src="deleteicon.png" ng-click="deleteblog(blog.blogid)" width="20" height="20"/>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <img src="edit.jpg" ng-click="editBlog(blog.blogid)" width="20" height="20"/> 
+           </span>
+        </h4>
+        
+      </div>
+      <div id="{{blog.blogid}}" class="panel-collapse collapse">
+        <div class="panel-body">{{blog.blogcontent}}</div>
+        
+        
+        <div class="panel-footer">
+        <ul>
+        <li ng-repeat="comment in blogcomment">{{comment.commenttext}}{{comment.commentDate}}</li>
+       </ul>
+       <textarea id="commenttext" ng-model="comment.commenttext"></textarea>
+       <img src="insert.png" width="40" height="30" ng-click="addBlogComment()">
+   
+        </div>      
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+</div>
+  </div> 
+
+    

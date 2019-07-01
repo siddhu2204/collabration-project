@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Team Coll</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+<script src="Router.js"></script>
+<script src="user/UserController.js"></script>
+<script src="c_blog/BlogController.js"></script>
+<script src="c_blog/BlogCommentController.js"></script>
+<script src="Forum/ForumController.js"></script>
+<script src="Forum/ForumComment.js"></script>
+<script src="friend/FriendController.js"></script>
+<script src="chat/ChatController.js"></script>
+<script src="chat/ChatService.js"></script>
+<script src="job/JobController.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+  
+<link rel="stylesheet" href="Login.css"/>
+<link rel="stylesheet" href="Register.css"/>
+<link rel="stylesheet" href="c_blog/AddBlog.css"/>
+<link rel="stylesheet" href="chat/Chat1.css"/>
+<link rel="stylesheet" href="job/job.css"/>
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+
+</head>
+<body ng-app="MyApp">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Team Coll</a>
+    </div>
+    <ul class="nav navbar-nav"> 
+    <li ng-show="user1==undefined"><a href="#!userHome">User Home</a></li>
+      <li ng-show="user1==undefined"><a href="#!login">Login</a></li>
+	<li ng-show="user1==undefined"><a href="#!register">Register</a></li>
+     
+      <li ng-show="user1==undefined"><a href="#!aboutus">AboutUs</a></li>
+    
+    <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Blog <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a class="nav-link" href="#!addBlog" ng-show="user1.role=='User'">AddBlog</a>
+    <li><a class="nav-link" href="#!ManageBlog" ng-show="user1.role=='Admin'">ManageBlog</a>
+    <li><a class="nav-link" href="#!showBlog">ShowBlog</a>
+    </ul>
+    </li>
+    
+    <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Forum <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a class="nav-link" href="#!addForum" ng-show="user1.role=='User'">AddForum</a>
+    <li><a class="nav-link" href="#!ManageForum" ng-show="user1.role=='Admin'">ManageForum</a>
+    <li><a class="nav-link" href="#!showForum">ShowForum</a>
+    </ul>
+    </li>
+    
+    <li ng-hide="user1==undefined"><a href="#!profileUpdate">ProfileUpdate</a></li>
+    <li ng-hide="user1==undefined"><a href="#!friend">Friend</a></li>
+     <li ng-hide="user1==undefined"><a href="#!chat">Chat1</a></li>
+    
+    
+    
+    <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job<span class="caret"></span></button>
+    <ul class="dropdown-menu"> 
+    <li><a class="nav-link" href="#!ManageJob" ng-show="user1.role=='Admin'">ManageJob</a>
+    <li><a class="nav-link" href="#!showJob">ShowJob</a>
+    </ul>
+    </li>
+    
+    </ul>
+    
+    </center>
+    <div class="nav navbar-nav navbar-right" ng-hide="user1==undefined">
+    <img src="http://localhost:9601/middleend/getImage/{{user1.username}}" width="20" height="20"/>
+    <font color="white" face="calibri" size="2">
+    Welcome {{user1.username}}
+    </font>
+    <div ng-controller="UserController">
+    <a href="" ng-click="logout()">
+    <span class="glyphicon glyphicon-log-out"></span> 
+    </a>
+    </div>
+    </div>
+  </div>
+</nav>
+<div ng-view></div>
+<img src="coll1.jpg" alt="collabration leads to success" width="1000" height="1000">
+</body>
+</html>

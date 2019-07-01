@@ -1,0 +1,45 @@
+<div class="container" ng-controller="ForumCommentController">
+  <div class="row">
+<div class="main">
+ <h3>Forum Comment</h3>
+ 
+  <div> 
+  <div class="panel-group"id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        
+           <a data-toggle="collapse" data-parent="#accordion" href="/#{{forum.forumid}}">{{forum.forumname}}</a>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <img src="likeicon.jpg" ng-click="incrementlikes(forum.forumid)" width="20" height="20"/>{{forum.likes}}
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+           <img src="dislikeicon.png" ng-click="incrementdislikes(forum.forumid)" width="20" height="20"/>{{forum.dislikes}}
+           <span ng-show="forum.username==user1.username">
+           <img src="deleteicon.png" ng-click="deleteforum(forum.forumid)" width="20" height="20"/>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <img src="edit.jpg" ng-click="editForum(forum.forumid)" width="20" height="20"/> 
+           </span>
+        </h4>
+        
+      </div>
+      <div id="{{forum.forumid}}" class="panel-collapse collapse">
+        <div class="panel-body">{{forum.forumcontent}}</div>
+        
+        
+        <div class="panel-footer">
+        <ul>
+        <li ng-repeat="comment in forumcomment">{{comment.commenttext}}{{comment.commentDate}}</li>
+       </ul>
+       <textarea id="commenttext" ng-model="comment.commenttext"></textarea>
+       <img src="insert.png" width="40" height="30" ng-click="addForumComment()">
+   
+        </div>      
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+</div>
+  </div> 
+
+    

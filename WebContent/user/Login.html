@@ -1,0 +1,23 @@
+<h1></h1>
+<div class="container" ng-controller="UserController">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="textarea"   ng-model="UserDetail.username" ng-minlength="5"   id="login" class="fadeIn second" name="login" placeholder="login" required/><br/>
+      <input type="password"  ng-model="UserDetail.password"    id="password" class="fadeIn third" name="login" placeholder="password" required/><br/>
+      
+      <input type="submit" ng-click="checkUser()" class="fadeIn fourth" value="Log In">
+    </form>
+
+   
+  </div>
+</div>
+</div>

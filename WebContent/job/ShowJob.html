@@ -1,0 +1,32 @@
+<div class="container" ng-controller="JobController">
+  <h2>Table</h2>
+                                                                                       
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>JOB ID</th>
+        <th>JOB DESIGNATION</th>
+        <th>LOCATION</th>
+        <th>LASTDATE</th>
+        <th>SKILLS</th>
+        <th>COMPANY NAME</th>
+        <th>CTC</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr ng-repeat="job in jobs">
+        <td>{{job.jobid}}</td>
+        <td>{{job.jobdesignation}}</td>
+        <td>{{job.location}}</td>
+        <td>{{job.lastdatetoapply}}</td>
+        <td>{{job.skills}}</td>
+        <td>{{job.companyname}}</td>
+        <td>{{job.ctc}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+

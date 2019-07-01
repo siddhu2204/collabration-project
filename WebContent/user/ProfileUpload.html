@@ -1,0 +1,26 @@
+<div class="container" ng-controller="UserController">
+
+  <div class="row">
+
+    <div class="main">
+
+      <h3> <a href="#/register">Profile Picture</a></h3>
+      <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+      </div>
+
+      <form method="post" action="http://localhost:9601/middleend/doUpload" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">Picture</label>
+          <input type="file" class="file" name="file"/>
+        </div>
+            <input type="submit" class="btn btn btn-primary" value="Upload"/>
+        
+        </button>
+      </form>
+    
+    </div>
+    
+  </div>
+</div>
